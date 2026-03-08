@@ -219,7 +219,7 @@ fn needed_results(courses: &Vec<CourseGrades>) {
 
     for boundary in GRADE_BOUNDARIES {
         if boundary.score == 0.0 {continue;}
-        print!("{}: ", boundary.letter_grade);
+        print!("{:<2}: ", boundary.letter_grade);
         let mark_needed = (boundary.score - (weight_so_far * secured_grade))/(1.0 - weight_so_far);
         println!("{:.1}%", mark_needed*100.0);
     }
