@@ -190,7 +190,7 @@ fn current_results(courses: &Vec<CourseGrades>) {
 
     let weighted_grade = secured_grade / weight_so_far;
 
-    println!("So far, completed {}% of course deliverables, secured {}% of the final mark, keeping current average, final grade will be {}%.", weight_so_far*100.0, secured_grade*100.0, weighted_grade*100.0);
+    println!("So far, completed {:.1}% of course deliverables, secured {:.1}% of the final mark, keeping current average, final grade will be {:.2}%.", weight_so_far*100.0, secured_grade*100.0, weighted_grade*100.0);
 }
 
 fn needed_results(courses: &Vec<CourseGrades>) {
@@ -220,7 +220,7 @@ fn needed_results(courses: &Vec<CourseGrades>) {
     for boundary in GRADE_BOUNDARIES {
         if boundary.score == 0.0 {continue;}
         print!("{:<2}: ", boundary.letter_grade);
-        let mark_needed = (boundary.score - (weight_so_far * secured_grade))/(1.0 - weight_so_far);
+        let mark_needed = (boundary.score - secured_grade)/(1.0 - weight_so_far);
         println!("{:.1}%", mark_needed*100.0);
     }
 }
